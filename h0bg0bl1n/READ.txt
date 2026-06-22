@@ -1,0 +1,59 @@
+🚗 Chevrolet ZR2 Inventory Tracker
+
+A Python-based automation tool that scans local Chevrolet dealership websites for new Colorado ZR2 inventory, parses vehicle specifications (like sunroofs), and sends an SMS alert when a match is found.
+Setup Instructions
+1. Prerequisites
+
+    Install Python 3.10+
+
+    Clone this repository to your computer.
+
+2. Installation
+
+Open your terminal/command prompt in the project folder and run:
+Bash
+
+pip install -r requirements.txt
+python -m playwright install
+
+3. Configuration
+
+    Rename the file env.example to .env.
+
+    Open the .env file in a text editor (Notepad or VS Code).
+
+    Fill in your settings:
+
+        SENDER_EMAIL: Your Gmail address.
+
+        SENDER_PASSWORD: Your 16-character Gmail App Password.
+
+        RECIPIENT_SMS: Your phone number (or your carrier's email-to-SMS gateway address).
+
+        SEARCH_LOCATION: The city or zip code you want to search.
+
+4. Usage
+
+    Find Dealers:
+    Bash
+
+    python dealer_finder.py
+
+    This will generate a dealers.txt file populated with local Chevrolet dealership inventory pages.
+
+    Run the Tracker:
+    Bash
+
+    python zr2_tracker.py
+
+Critical Advice for your GitHub Release
+
+    The .gitignore file is your best friend: Create a file named .gitignore in your repository and put these lines in it. This prevents you from accidentally uploading your private data to the cloud:
+    Plaintext
+
+    .env
+    dealers.txt
+    truck_tracker.json
+    __pycache__/
+
+    Safety Warning: In your README.md, include a small note that users should not increase the frequency of their scans too much, as dealership websites may temporarily ban their IP address if they scan more than once every few hours.
